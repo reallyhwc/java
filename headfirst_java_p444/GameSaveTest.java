@@ -1,10 +1,12 @@
+package p444;
+
 import java.io.*;
 
 public class GameSaveTest {
 	public static void main(String[] args) {
-		GameCharacter one = new GameCharacter(50,"Elf",new String {"bow", "sword", "dust"});
-		GameCharacter two = new GameCharacter(200, "Troll", new String {"Bare hands", "big ax"});
-		GameCharacter three = new GameCharacter(120. "Megician", new String {"spells", "invisibility"});
+		GameCharacter one = new GameCharacter(50,"Elf",new String[] {"bow", "sword", "dust"});
+		GameCharacter two = new GameCharacter(200, "Troll", new String[] {"Bare hands", "big ax"});
+		GameCharacter three = new GameCharacter(120, "Megician", new String[] {"spells", "invisibility"});
 
 		//假设这里有改变人物状态值和属性的代码
 
@@ -15,7 +17,7 @@ public class GameSaveTest {
 			os.writeObject(three);
 			os.close();
 		} catch(IOException ex) {
-			ex.printStrackTrance();
+			ex.printStackTrace();
 		}
 		one = null;
 		two = null;
@@ -34,7 +36,7 @@ public class GameSaveTest {
 			System.out.println("Three's type: " + threeRestore.getType());
 
 		} catch (Exception ex) {
-			ex.printStrackTrance();
+			ex.printStackTrace();
 		}
 
 	}

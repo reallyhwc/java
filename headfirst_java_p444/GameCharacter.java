@@ -1,3 +1,5 @@
+package p444;
+
 import java.io.*;
 
 public class GameCharacter implements Serializable {
