@@ -1,3 +1,5 @@
+package p450;
+
 
 import java.util.*;
 import java.awt.event.*;
@@ -23,8 +25,8 @@ public class QuizCardBuilder {
 		Font bigFont = new Font("sanserif", Font.BOLD, 24);
 
 		question = new JTextArea(6, 20);
-		question.setLineWarp(true);
-		question.setWarpStyleWord(true);
+		question.setLineWrap(true);
+		question.setWrapStyleWord(true);
 		question.setFont(bigFont);
 
 		JScrollPane qScroller = new JScrollPane(question);
@@ -32,8 +34,8 @@ public class QuizCardBuilder {
 		qScroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
 		answer = new JTextArea(6, 20);
-		answer.setLineWarp(true);
-		answer.setWarpStyleWord(true);
+		answer.setLineWrap(true);
+		answer.setWrapStyleWord(true);
 		answer.setFont(bigFont);
 
 		JScrollPane aScroller = new JScrollPane(answer);
@@ -67,7 +69,7 @@ public class QuizCardBuilder {
 		fileMenu.add(saveMenuItem);
 		menuBar.add(fileMenu);
 
-		frame.setJmenuBar(menuBar);
+		frame.setJMenuBar(menuBar);
 		frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
 		frame.setSize(500, 600);
 		frame.setVisible(true);
@@ -91,14 +93,14 @@ public class QuizCardBuilder {
 			/*
 			调出存盘对话框，等待用户决定，这都是靠JFileChoose完成的
 			*/
-			JFileChoose fileSave = new JFileChoose();
+			JFileChooser fileSave = new JFileChooser();
 			fileSave.showSaveDialog(frame);
 			saveFile(fileSave.getSelectedFile());
 
 		}
 	}
 
-	public class NextCardListener implements ActionListener {
+	public class NewMenuListener implements ActionListener {
 		public void actionPerformed(ActionEvent ev) {
 			cardList.clear();
 			clearCard();
@@ -113,7 +115,7 @@ public class QuizCardBuilder {
 
 	private void saveFile(File file) {
 		try {
-			BuffereWriter writer = new BuffereWriter(new FileWriter(file));
+			BufferedWriter writer = new BufferedWriter(new FileWriter(file));
 
 			for(QuizCard card:cardList) {
 				writer.write(card.getQuestion() + "/");
