@@ -21,6 +21,10 @@ public class PlafTest
          });
    }
 }
+/*
+感觉现在在里面加注释应该没问题了吧
+*/
+
 
 /**
  * A frame with a button panel for changing look and feel
